@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+eval "$(fnm env)"
+eval "$(starship init zsh)"
+eval "$(gh completion -s zsh)"

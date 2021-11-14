@@ -1,0 +1,122 @@
+[user]
+	name = Alexander Ochoa
+	email = ochoaseguralex@gmail.com
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = "code -w"
+
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+  # Make `git rebase` safer on OS X
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+
+[push]
+  default = simple
+
+[init]
+	defaultBranch = main
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[color]
+  interactive = auto
+  grep = auto
+  ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # Line info
+	old = red # Deletions
+	new = green # Additions
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[hub]
+  protocol = https
+
+[github]
+	user = mrtrom
+
+[diff]
+  tool = vscode-diff
+  prompt = false
+
+  # Detect copies as well as renames
+  renames = copies
+
+[difftool "vscode-diff"]
+	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[merge]
+  tool = vscode-merge|vimdiff
+
+[mergetool]
+	keepBackup = false
+
+[mergetool "vscode-merge"]
+	cmd = code --wait \"$MERGED\"
+	trustExitCode = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+
+[ghq]
+  root = ~/.ghq
+
+[commit]
+	gpgsign = true
+
+[pull]
+	rebase = true
+
+[alias]
+  a = add
+  aa = add .
+  aaa = add --all
+  au = add --updated
+  b = branch
+  bd = branch --delete 
+  c = commit
+  cf = commit --fixup
+  cm = commit --message
+  co = checkout
+  cob = checkout -b
+  cod = checkout develop
+  com = checkout master
+  cos = checkout staging
+  d = diff
+  da = diff HEAD
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  i = init
+  lg = log --graph --oneline --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  s = status
+  ss = status --short
+  st = stash
+  sta = stash apply
+  std = stash drop
+  stl = stash list
+  stp = stash pop
+  sts = stash save
+  up = !git fetch && git rebase --autostash FETCH_HEAD

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Show local ip:
+alias localip="ipconfig getifaddr en0"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Copy public key to clipboard:
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Enable colorized output for `ls` command.
+alias ls='ls -G'
+
+# Github Aliases (refer to git aliases)
+alias ga="git a"
+alias gaa="git aa"
+alias gaaa="git aaa"
+alias gau="git au"
+alias gb="git b"
+alias gbd="git bd"
+alias gc="git c"
+alias gcf="git cf"
+alias gcm="git cm"
+alias gco="git co"
+alias gcob="git cob"
+alias gcod="git cod"
+alias gcom="git com"
+alias gcos="git cos"
+alias gd="git d"
+alias gda="git da"
+alias ghist="git hist"
+alias gi="git i"
+alias glg="git lg"
+alias gllog="git llog"
+alias gpl="git pl"
+alias gps="git ps"
+alias gs="git s"
+alias gss="git ss"
+alias gst="git st"
+alias gsta="git sta"
+alias gstd="git std"
+alias gstl="git stl"
+alias gstp="git stp"
+alias gsts="git sts"
+alias gup="git up"
