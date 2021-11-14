@@ -4,13 +4,19 @@
 alias localip="ipconfig getifaddr en0"
 
 # Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk="pmset displaysleepnow"
 
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Enable colorized output for `ls` command.
 alias ls='ls -G'
+
+# Print and sort files by size
+alias lt='du -sh * | sort -h'
+
+# Clear the terminal
+alias cl="clear"
 
 # Github Aliases (refer to git aliases)
 alias ga="git a"
@@ -44,3 +50,13 @@ alias gstl="git stl"
 alias gstp="git stp"
 alias gsts="git sts"
 alias gup="git up"
+
+# Docker alias
+alias dl="sudo docker ps -l -q"
+alias dps="sudo docker ps"
+alias di="sudo docker images"
+alias dip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias dkd="sudo docker run -d -P"
+alias dki="sudo docker run -i -t -P"
+alias dex="sudo docker exec -i -t"
+alias drmf='sudo docker stop $(sudo docker ps -a -q) && sudo docker rm $(sudo docker ps -a -q)'
