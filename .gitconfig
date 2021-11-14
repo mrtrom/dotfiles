@@ -1,6 +1,7 @@
 [user]
 	name = Alexander Ochoa
 	email = ochoaseguralex@gmail.com
+  username = mrtrom
 
 [core]
   excludesfile = ~/.gitignore
