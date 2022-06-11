@@ -1,62 +1,80 @@
-#!/usr/bin/env bash
+# Show/hide hidden files in the Finder
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-# Show local ip:
-alias localip="ipconfig getifaddr en0"
-
-# Lock the screen (when going AFK)
-alias afk="pmset displaysleepnow"
-
-# Copy public key to clipboard:
-alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-
-# Enable colorized output for `ls` command.
-alias ls='ls -G'
-
-# Print and sort files by size
-alias lt='du -sh * | sort -h'
-
-# Clear the terminal
-alias cl="clear"
-
-# Github Aliases (refer to git aliases)
-alias ga="git a"
-alias gaa="git aa"
-alias gaaa="git aaa"
-alias gau="git au"
-alias gb="git b"
-alias gbd="git bd"
-alias gc="git c"
-alias gcf="git cf"
-alias gcm="git cm"
-alias gco="git co"
-alias gcob="git cob"
-alias gcod="git cod"
-alias gcom="git com"
-alias gcos="git cos"
-alias gd="git d"
-alias gda="git da"
-alias ghist="git hist"
-alias gi="git i"
-alias glg="git lg"
-alias gllog="git llog"
-alias gpl="git pl"
-alias gps="git ps"
-alias gs="git s"
-alias gss="git ss"
-alias gst="git st"
-alias gsta="git sta"
-alias gstd="git std"
-alias gstl="git stl"
-alias gstp="git stp"
-alias gsts="git sts"
-alias gup="git up"
-
-# Docker alias
-alias dl="sudo docker ps -l -q"
-alias dps="sudo docker ps"
-alias di="sudo docker images"
-alias dip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-alias dkd="sudo docker run -d -P"
-alias dki="sudo docker run -i -t -P"
-alias dex="sudo docker exec -i -t"
-alias drmf='sudo docker stop $(sudo docker ps -a -q) && sudo docker rm $(sudo docker ps -a -q)'
+# ----------------------
+# NPM aliases taken from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/npm.plugin.zsh
+# ----------------------
+# Install dependencies globally
+alias npmg="npm i -g "
+# npm package names are lowercase
+# Thus, we've used camelCase for the following aliases:
+# Install and save to dependencies in your package.json
+# npms is used by https://www.npmjs.com/package/npms
+alias npmS="npm i -S "
+# Install and save to dev-dependencies in your package.json
+# npmd is used by https://github.com/dominictarr/npmd
+alias npmD="npm i -D "
+# Execute command from node_modules folder based on current directory
+# i.e npmE gulp
+alias npmE='PATH="$(npm bin)":"$PATH"'
+# Check which npm modules are outdated
+alias npmO="npm outdated"
+# Check package versions
+alias npmV="npm -v"
+# List packages
+alias npmL="npm list"
+# List top-level installed packages
+alias npmL0="npm ls --depth=0"
+# Run npm start
+alias npmst="npm start"
+# Run npm test
+alias npmt="npm test"
+# Run npm scripts
+alias npmR="npm run"
+# Run npm publish
+alias npmP="npm publish"
+# Run npm init
+alias npmI="npm init"
+# Updates npm
+alias npmU="npm update -g npm"
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add --all'
+alias gau='git add --update'
+alias gb='git branch'
+alias gbd='git branch --delete '
+alias gc='git commit'
+alias gcf='git commit --fixup'
+alias gcm='git commit --message'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcod='git checkout develop'
+alias gcom='git checkout master'
+alias gcos='git checkout staging'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gi='git init'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias glg='git log --graph --oneline --decorate --all'
+alias gm='git merge --no-ff'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gmm='git merge master'
+alias gp='git push'
+alias gpu='git push --set-upstream origin'
+alias gr='git rebase'
+alias graa='git rebase --abort'
+alias grcc='git rebase --continue'
+alias gs='git status'
+alias gss='git status --short'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash save'
+alias gu='git up'

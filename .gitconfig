@@ -1,6 +1,6 @@
 [user]
-	name = Alexander Ochoa
-	email = ochoaseguralex@gmail.com
+  name = Alexander Ochoa
+  email = ochoaseguralex@gmail.com
   username = mrtrom
 
 [core]
@@ -8,23 +8,23 @@
   editor = "code -w"
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
   # Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-	trustctime = false
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
 
 [push]
   default = simple
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
 
 [color]
   interactive = auto
@@ -32,26 +32,26 @@
   ui = auto
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold # Line info
-	old = red # Deletions
-	new = green # Additions
+  meta = yellow bold
+  frag = magenta bold # Line info
+  old = red # Deletions
+  new = green # Additions
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [hub]
   protocol = https
 
 [github]
-	user = mrtrom
+  user = mrtrom
 
 [diff]
   tool = vscode-diff
@@ -61,33 +61,33 @@
   renames = copies
 
 [difftool "vscode-diff"]
-	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+  path = 
 
 [merge]
   tool = vscode-merge|vimdiff
 
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 
 [mergetool "vscode-merge"]
-	cmd = code --wait \"$MERGED\"
-	trustExitCode = true
+  cmd = code --wait \"$MERGED\"
+  trustExitCode = true
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 
 [ghq]
   root = ~/.ghq
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [pull]
-	rebase = true
+  rebase = true
 
 [alias]
   a = add
@@ -121,3 +121,6 @@
   stp = stash pop
   sts = stash save
   up = !git fetch && git rebase --autostash FETCH_HEAD
+
+[gpg]
+  program = /opt/homebrew/bin/gpg

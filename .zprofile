@@ -15,23 +15,21 @@ fi
 # Commands starting from " " (whitespace) won't be saved in history:
 HIST_IGNORE_SPACE="true"
 
-# zplug home directory
-ZPLUG_HOME="$HOME/.zplug"
-
-export ZPLUG_HOME
-source "$HOME/.zplugrc"
-
 plugins=(
   gitfast
   osx
 )
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # User configuration:
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f ${HOME}/.zplug/init.zsh ]; then
+    source ${HOME}/.zplug/init.zsh
+fi
+
+source "$HOME/.zplugrc"
+source "$HOME/.shell/.zaliases.sh"
 source "$HOME/.shell/.exports"
-source "$HOME/.shell/.aliases"
 source "$HOME/.shell/.functions"
 source "$HOME/.shell/.external"
