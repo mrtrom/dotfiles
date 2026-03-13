@@ -1,0 +1,186 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+#
+gui:
+  nerdFontsVersion: "3"
+
+customCommands:
+  # ===========================================================================
+  # Global commands
+  # ===========================================================================
+  - key: "U"
+    context: "global"
+    command: "git up"
+    description: "Up"
+
+  # --- Worktree operations menu (accessible from anywhere) ---
+  - key: "W"
+    description: "Worktree operations"
+    commandMenu:
+      - key: "n"
+        context: "global"
+        description: "New sibling worktree (new branch from HEAD)"
+        prompts:
+          - type: "input"
+            title: "New branch & worktree name (from {{ .CheckedOutBranch.Name }}):"
+            key: "Name"
+            initialValue: ""
+        command: >-
+          git worktree add
+          ../{{ .Form.Name }}
+          -b {{ .Form.Name }}
+        loadingText: "Creating worktree..."
+        output: "log"
+
+      - key: "e"
+        context: "global"
+        description: "New sibling worktree (existing branch)"
+        prompts:
+          - type: "input"
+            title: "Branch to check out:"
+            key: "Branch"
+            suggestions:
+              preset: "branches"
+          - type: "input"
+            title: "Worktree directory name:"
+            key: "Dir"
+            initialValue: "{{ .Form.Branch }}"
+        command: >-
+          git worktree add
+          ../{{ .Form.Dir }}
+          {{ .Form.Branch }}
+        loadingText: "Creating worktree..."
+        output: "log"
+
+      - key: "l"
+        context: "global"
+        description: "List all worktrees"
+        command: "git worktree list"
+        output: "popup"
+        outputTitle: "Git Worktrees"
+
+      - key: "p"
+        context: "global"
+        description: "Prune stale worktree entries"
+        prompts:
+          - type: "confirm"
+            title: "Prune Worktrees"
+            body: "Remove stale worktree references?"
+        command: "git worktree prune"
+        loadingText: "Pruning..."
+        output: "log"
+
+  # ===========================================================================
+  # Status commands
+  # ===========================================================================
+  - key: "M"
+    context: "status"
+    description: "Open new Warp terminal in project"
+    command: "open -a Warp ."
+  - key: "O"
+    context: "status"
+    description: "Open project in Cursor"
+    command: "cursor ."
+
+  # ===========================================================================
+  # Files commands
+  # ===========================================================================
+  - key: "G"
+    context: "files"
+    description: "Generate and create commits with Claude Code"
+    command: "/opt/homebrew/bin/claude -p '/git-commit-workflows:create-commit' --model sonnet"
+    output: terminal
+
+  # ===========================================================================
+  # Commits commands
+  # ===========================================================================
+  - key: "G"
+    command: "gh pr view -w"
+    context: "commits"
+    description: "Open Github PR in browser"
+  - key: O
+    context: commits
+    description: open files in commit
+    command: >-
+      {{- if gt (len .SelectedCommit.Parents) 0 -}}
+        git diff -z --name-only {{ index .SelectedCommit.Parents 0 }} {{ .SelectedCommit.Sha }} | xargs -0 cursor --
+      {{- else -}}
+        # no parent; compare against empty tree (shows all files in the root commit)
+        git diff -z --name-only $(git hash-object -t tree /dev/null) {{ .SelectedCommit.Sha }} | xargs -0 cursor --
+      {{- end -}}
+
+  # ===========================================================================
+  # Branches commands
+  # ===========================================================================
+  - key: "G"
+    command: "gh pr view -w {{.SelectedLocalBranch.Name}}"
+    context: "localBranches"
+    description: "Open Github PR in browser"
+  - key: "<c-g>"
+    context: "localBranches"
+    description: "Generate and create PRs with Claude Code"
+    command: "/opt/homebrew/bin/claude -p '/git-pr-workflows:create-pr' --model sonnet"
+    output: terminal
+
+  # --- Create sibling worktree from selected branch + new branch ---
+  - key: "N"
+    context: "localBranches"
+    description: "New sibling worktree from {{ .SelectedLocalBranch.Name }}"
+    prompts:
+      - type: "input"
+        title: "New branch & worktree name (from {{ .SelectedLocalBranch.Name }}):"
+        key: "Name"
+        initialValue: ""
+    command: >-
+      git worktree add
+      ../{{ .Form.Name }}
+      {{ .SelectedLocalBranch.Name }}
+      -b {{ .Form.Name }}
+    loadingText: "Creating worktree..."
+    output: "log"
+
+  # ===========================================================================
+  # Worktrees panel commands
+  # ===========================================================================
+
+  # --- Create sibling worktree with new branch from current HEAD ---
+  - key: "N"
+    context: "worktrees"
+    description: "New sibling worktree (new branch from {{ .CheckedOutBranch.Name }})"
+    prompts:
+      - type: "input"
+        title: "New branch & worktree name (from {{ .CheckedOutBranch.Name }}):"
+        key: "Name"
+        initialValue: ""
+    command: >-
+      git worktree add
+      ../{{ .Form.Name }}
+      {{ .CheckedOutBranch.Name }}
+      -b {{ .Form.Name }}
+    loadingText: "Creating worktree..."
+    output: "log"
+
+  # --- Force-remove selected worktree ---
+  - key: "D"
+    context: "worktrees"
+    description: "Force remove selected worktree"
+    prompts:
+      - type: "confirm"
+        title: "Force Remove Worktree"
+        body: "Are you sure you want to force-remove {{ .SelectedWorktree.Path }}? Uncommitted changes will be lost."
+    command: "git worktree remove -f {{ .SelectedWorktree.Path | quote }}"
+    loadingText: "Removing worktree..."
+    output: "log"
+
+# ===========================================================================
+# Git settings
+# ===========================================================================
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="cursor://file/{path}:{line}"
+
+# ===========================================================================
+# OS / editor settings
+# ===========================================================================
+os:
+  edit: zed {{filename}}
