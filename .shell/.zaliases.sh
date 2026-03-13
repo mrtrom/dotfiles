@@ -98,3 +98,8 @@ alias lg='lazygit'
 # ----------------------
 alias cd='z'    # frecency-based directory jump
 alias cdi='zi'  # interactive selection with fzf
+
+# ----------------------
+# fd (modern find replacement)
+# ----------------------
+alias find='fd'
