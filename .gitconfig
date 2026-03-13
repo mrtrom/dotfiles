@@ -139,4 +139,4 @@
 [gpg "ssh"]
 	allowedSignersFile = /Users/mrtrom/.config/git/allowed_signers
 [credential]
-	helper = store
+	helper = osxkeychain
