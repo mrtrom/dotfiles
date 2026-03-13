@@ -18,6 +18,18 @@ magic-enter() {
 }
 zle -N accept-line magic-enter
 
+# ── Yazi (file manager with cwd integration) ──────────────────────────────────
+# Using `y` instead of `yazi` changes your shell directory when you quit yazi
+y() {
+  local tmp
+  tmp="$(mktemp -t yazi-cwd)"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 # ── Completion caching ────────────────────────────────────────────────────────
 # Cache output of slow completion-generating commands for 24h.
 # Usage: _cached_completion pip completion --zsh
