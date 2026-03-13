@@ -21,8 +21,6 @@ plugins=(
 )
 
 # User configuration:
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source "$HOME/.shell/.zaliases.sh"
 source "$HOME/.shell/.exports"
@@ -62,9 +60,6 @@ export PATH="/Users/mrtrom/.antigravity/antigravity/bin:$PATH"
 
 # Ensure /usr/local/bin is prioritized for AWS CLI v2
 export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # Remove duplicate PATH entries
 typeset -U PATH path
-
-export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
