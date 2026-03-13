@@ -92,3 +92,9 @@ alias ls='eza --icons --group-directories-first'
 # Lazygit
 # ----------------------
 alias lg='lazygit'
+
+# ----------------------
+# Zoxide (smart cd)
+# ----------------------
+alias cd='z'    # frecency-based directory jump
+alias cdi='zi'  # interactive selection with fzf

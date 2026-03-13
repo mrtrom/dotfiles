@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Zoxide (smart cd with frecency)
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 
 # Lazy-load rbenv (only initializes when ruby/rbenv command is used - saves ~0.12s startup time)

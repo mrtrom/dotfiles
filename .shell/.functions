@@ -3,3 +3,30 @@
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
+
+# ── Magic Enter ───────────────────────────────────────────────────────────────
+# Pressing Enter on a blank prompt runs `git status` (in a git repo) or `eza`
+magic-enter() {
+  if [[ -z "$BUFFER" ]]; then
+    if git rev-parse --is-inside-work-tree &>/dev/null 2>&1; then
+      BUFFER="git status --short"
+    else
+      BUFFER="eza --icons --group-directories-first -la"
+    fi
+  fi
+  zle .accept-line
+}
+zle -N accept-line magic-enter
+
+# ── Completion caching ────────────────────────────────────────────────────────
+# Cache output of slow completion-generating commands for 24h.
+# Usage: _cached_completion pip completion --zsh
+_cached_completion() {
+  local cache_dir="$HOME/.zsh_comp_cache"
+  local cache="$cache_dir/$1"
+  mkdir -p "$cache_dir"
+  if [[ ! -f "$cache" ]] || [[ -n "$(find "$cache" -mtime +1 2>/dev/null)" ]]; then
+    "$@" > "$cache" 2>/dev/null
+  fi
+  source "$cache"
+}
