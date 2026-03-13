@@ -3,9 +3,15 @@
 .git-credentials
 .npmrc2
 
-# AWS credentials
+# AWS credentials and sensitive configs
 .aws/credentials
-.aws/sso/cache/
+.aws/credentials_bck
+.aws/config.bak
+.aws/config_bck
+.aws/sso/
+.aws/cli/
+.aws/okta_auth
+.aws/reel.yaml
 .codeartifact-token
 
 # SSH private keys
