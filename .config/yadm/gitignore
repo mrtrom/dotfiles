@@ -1,0 +1,34 @@
+# Secrets — never track these
+.shell/.exports.secret
+.git-credentials
+.npmrc2
+
+# AWS credentials
+.aws/credentials
+.aws/sso/cache/
+.codeartifact-token
+
+# SSH private keys
+.ssh/id_rsa
+.ssh/id_ed25519
+.ssh/*.pem
+.ssh/known_hosts*
+
+# Sensitive tool caches
+.gnupg/
+.netrc
+
+# Local state / caches (not config)
+.zsh_comp_cache/
+.zsh_sessions/
+.zcompdump*
+.bash_history
+.zsh_history
+.node_repl_history
+.python_history
+.psql_history
+.lesshst
+
+# macOS noise
+.DS_Store
+.Trash/

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+_fzf_compgen_path() {
+  ag -g "" "$1"
+}

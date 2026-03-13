@@ -1,0 +1,94 @@
+# Show/hide hidden files in the Finder
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# ----------------------
+# NPM aliases taken from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/npm.plugin.zsh
+# ----------------------
+# Install dependencies globally
+alias npmg="npm i -g "
+# npm package names are lowercase
+# Thus, we've used camelCase for the following aliases:
+# Install and save to dependencies in your package.json
+# npms is used by https://www.npmjs.com/package/npms
+alias npmS="npm i -S "
+# Install and save to dev-dependencies in your package.json
+# npmd is used by https://github.com/dominictarr/npmd
+alias npmD="npm i -D "
+# Execute command from node_modules folder based on current directory
+# i.e npmE gulp
+alias npmE='PATH="$(npm bin)":"$PATH"'
+# Check which npm modules are outdated
+alias npmO="npm outdated"
+# Check package versions
+alias npmV="npm -v"
+# List packages
+alias npmL="npm list"
+# List top-level installed packages
+alias npmL0="npm ls --depth=0"
+# Run npm start
+alias npmst="npm start"
+# Run npm test
+alias npmt="npm test"
+# Run npm scripts
+alias npmR="npm run"
+# Run npm publish
+alias npmP="npm publish"
+# Run npm init
+alias npmI="npm init"
+# Updates npm
+alias npmU="npm update -g npm"
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add --all'
+alias gau='git add --update'
+alias gb='git branch'
+alias gbd='git branch --delete '
+alias gc='git commit'
+alias gcf='git commit --fixup'
+alias gcm='git commit --message'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcod='git checkout develop'
+alias gcom='git checkout master'
+alias gcomain='git checkout main'
+alias gcos='git checkout staging'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gi='git init'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias glg='git log --graph --oneline --decorate --all'
+alias gm='git merge --no-ff'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gmm='git merge master'
+alias gp='git push'
+alias gpu='git push --set-upstream origin'
+alias gr='git rebase'
+alias graa='git rebase --abort'
+alias grcc='git rebase --continue'
+alias gs='git status'
+alias gss='git status --short'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash save'
+alias gu='git up'
+alias gccb="git branch --show-current | tr -d '\n' | pbcopy"
+alias grh="git reset --hard"
+
+# ----------------------
+# EZA
+# ----------------------
+alias ls='eza --icons --group-directories-first'
+
+
+# ----------------------
+# Lazygit
+# ----------------------
+alias lg='lazygit'
