@@ -86,6 +86,13 @@ alias grh="git reset --hard"
 # EZA
 # ----------------------
 alias ls='eza --icons --group-directories-first'
+alias ll='eza --icons --group-directories-first -la'
+alias lt='eza --icons --tree --level=2'
+
+# ----------------------
+# bat (syntax-highlighted cat)
+# ----------------------
+alias cat='bat'
 
 
 # ----------------------

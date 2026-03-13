@@ -108,7 +108,6 @@ brew install \
   granted \
   tfenv \
   pulumi \
-  gh \
   argocd \
   flyctl
 
@@ -125,7 +124,8 @@ brew install \
   biome \
   opencode \
   stripe \
-  localstack-cli
+  localstack-cli \
+  yazi
 
 # ── 9. Casks ─────────────────────────────────────────────────────────────────
 info "Installing casks..."
@@ -140,19 +140,10 @@ brew install --cask \
   claude-code
 
 # ── 10. macOS defaults ────────────────────────────────────────────────────────
-info "Applying macOS defaults..."
-
-# Show hidden files in Finder
-defaults write com.apple.finder AppleShowAllFiles -bool true
-# Show path bar in Finder
-defaults write com.apple.finder ShowPathbar -bool true
-# Disable press-and-hold key repeat (enables key repeat)
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-# Fast key repeat
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
-
-killall Finder 2>/dev/null || true
+if [ -f "$HOME/macos.sh" ]; then
+  info "Applying macOS defaults..."
+  bash "$HOME/macos.sh"
+fi
 
 # ── 11. Manual steps ─────────────────────────────────────────────────────────
 echo ""
@@ -177,7 +168,10 @@ cat <<'EOF'
   5. NewsCorp env:
        - Set REEL_GIT_TOKEN in a project-local .envrc (managed by direnv)
 
-  6. Restart terminal to apply all shell changes.
+  6. granted browser:
+       - Run: granted browser set -b chrome --path "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+
+  7. Restart terminal to apply all shell changes.
 EOF
 
 success "Bootstrap complete!"
