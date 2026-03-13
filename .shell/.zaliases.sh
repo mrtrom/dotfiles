@@ -110,3 +110,9 @@ alias cdi='zi'  # interactive selection with fzf
 # fd (modern find replacement)
 # ----------------------
 alias find='fd'
+
+# ----------------------
+# Claude multi-account
+# ----------------------
+alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
+alias claude-personal='claude'

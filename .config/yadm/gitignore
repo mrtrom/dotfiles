@@ -1,3 +1,6 @@
+# Claude work config (contains auth tokens)
+.claude-work/
+
 # Secrets — never track these
 .shell/.exports.secret
 .git-credentials
