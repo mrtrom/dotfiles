@@ -157,7 +157,6 @@ Pressing **Enter on a blank prompt** auto-runs:
 | Alias | Description |
 |-------|-------------|
 | `find` | `fd` — fast, modern find |
-| `ghd` | `gh dash` — GitHub dashboard TUI |
 
 ---
 
