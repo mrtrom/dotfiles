@@ -165,13 +165,10 @@ cat <<'EOF'
        - Run: gpg --import <your-key.gpg>
        - Run: gpg --list-secret-keys
 
-  5. NewsCorp env:
-       - Set REEL_GIT_TOKEN in a project-local .envrc (managed by direnv)
-
-  6. granted browser:
+  5. granted browser:
        - Run: granted browser set -b chrome --path "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 
-  7. Restart terminal to apply all shell changes.
+  6. Restart terminal to apply all shell changes.
 EOF
 
 success "Bootstrap complete!"

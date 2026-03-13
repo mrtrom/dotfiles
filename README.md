@@ -37,7 +37,6 @@ After that, follow the manual steps printed at the end of `bootstrap.sh`.
 | AWS SAML | `saml2aws configure` |
 | GPG signing | `gpg --import <your-key.gpg>` |
 | granted browser | `granted browser set -b chrome --path "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"` |
-| NewsCorp env | Add `REEL_GIT_TOKEN` to a project-local `.envrc` (loaded by direnv) |
 | Restart terminal | To apply all shell changes |
 
 ---
