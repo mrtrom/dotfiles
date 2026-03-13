@@ -1,3 +1,5 @@
+export _ZO_DOCTOR=0
+
 source "/Users/mrtrom/.rover/env"
 . "$HOME/.cargo/env"
 

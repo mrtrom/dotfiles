@@ -65,5 +65,4 @@ export PATH="/usr/local/bin:$PATH"
 typeset -U PATH path
 
 # Zoxide — must be initialized last
-export _ZO_DOCTOR=0
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
