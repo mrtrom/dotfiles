@@ -63,3 +63,6 @@ export PATH="/usr/local/bin:$PATH"
 
 # Remove duplicate PATH entries
 typeset -U PATH path
+
+# Zoxide — must be initialized last
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
