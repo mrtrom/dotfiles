@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Copy untracked/ignored files to a newly created worktree.
+# Usage: worktree-init <new-worktree-path>
+#
+# Per-project overrides: create a .worktree-copy file at the repo root
+# listing one file/dir per line to copy instead of the defaults.
+
+set -euo pipefail
+
+DEST="${1:?Usage: worktree-init <new-worktree-path>}"
+SRC="$(git rev-parse --show-toplevel)"
+
+DEFAULT_COPIES=(
+  # Node
+  node_modules
+
+  # Python
+  .python-version
+  .venv
+  venv
+  .direnv
+
+  # Env files
+  .envrc
+  .env
+  .env.local
+  .env.development.local
+  .env.test.local
+  .env.staging
+  .env.production
+)
+
+COPY_LIST="$SRC/.worktree-copy"
+if [[ -f "$COPY_LIST" ]]; then
+  mapfile -t files < "$COPY_LIST"
+else
+  files=("${DEFAULT_COPIES[@]}")
+fi
+
+for item in "${files[@]}"; do
+  src_path="$SRC/$item"
+  if [[ -e "$src_path" ]]; then
+    echo "  copying $item..."
+    cp -r "$src_path" "$DEST/$item"
+  fi
+done

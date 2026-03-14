@@ -2,6 +2,10 @@
 
 gui:
   nerdFontsVersion: "3"
+  showFileTree: true
+  showRandomTip: false
+  commitLength:
+    show: true
 
 customCommands:
   # ===========================================================================
@@ -25,9 +29,8 @@ customCommands:
             key: "Name"
             initialValue: ""
         command: >-
-          git worktree add
-          ../{{ .Form.Name }}
-          -b {{ .Form.Name }}
+          git worktree add ../{{ .Form.Name }} -b {{ .Form.Name }} &&
+          ~/.config/git/worktree-init ../{{ .Form.Name }}
         loadingText: "Creating worktree..."
         output: "log"
 
@@ -45,9 +48,8 @@ customCommands:
             key: "Dir"
             initialValue: "{{ .Form.Branch }}"
         command: >-
-          git worktree add
-          ../{{ .Form.Dir }}
-          {{ .Form.Branch }}
+          git worktree add ../{{ .Form.Dir }} {{ .Form.Branch }} &&
+          ~/.config/git/worktree-init ../{{ .Form.Dir }}
         loadingText: "Creating worktree..."
         output: "log"
 
@@ -175,10 +177,8 @@ customCommands:
         key: "Name"
         initialValue: ""
     command: >-
-      git worktree add
-      ../{{ .Form.Name }}
-      {{ .SelectedLocalBranch.Name }}
-      -b {{ .Form.Name }}
+      git worktree add ../{{ .Form.Name }} {{ .SelectedLocalBranch.Name }} -b {{ .Form.Name }} &&
+      ~/.config/git/worktree-init ../{{ .Form.Name }}
     loadingText: "Creating worktree..."
     output: "log"
 
@@ -196,10 +196,8 @@ customCommands:
         key: "Name"
         initialValue: ""
     command: >-
-      git worktree add
-      ../{{ .Form.Name }}
-      {{ .CheckedOutBranch.Name }}
-      -b {{ .Form.Name }}
+      git worktree add ../{{ .Form.Name }} {{ .CheckedOutBranch.Name }} -b {{ .Form.Name }} &&
+      ~/.config/git/worktree-init ../{{ .Form.Name }}
     loadingText: "Creating worktree..."
     output: "log"
 

@@ -103,6 +103,8 @@ yadm diff HEAD~1
 | `.shell/.functions` | Shell functions (magic-enter, yazi, completion cache) |
 | `.shell/.external` | Tool initialization (Homebrew, FNM, zoxide, rbenv, Starship, direnv) |
 | `.gitconfig` | Git config with delta pager, SSH signing, aliases |
+| `.config/git/worktree-init` | Script to copy untracked files (`.envrc`, `.env*`, `node_modules`, `.venv`, etc.) into a new worktree |
+| `.config/lazygit/config.yml` | lazygit config: custom commands for worktrees, PRs, Claude Code commits, Warp/Cursor integration |
 | `.config/starship.toml` | Starship prompt config |
 | `.config/eza/theme.yml` | EZA file listing theme |
 | `.ssh/config` | SSH host config |
@@ -157,6 +159,24 @@ Pressing **Enter on a blank prompt** auto-runs:
 | Alias | Description |
 |-------|-------------|
 | `find` | `fd` — fast, modern find |
+
+### lazygit Worktree Workflow
+
+Press `W` from anywhere in lazygit to open the worktree menu:
+
+| Key | Action |
+|-----|--------|
+| `W n` | New worktree + new branch from HEAD |
+| `W e` | New worktree from an existing branch |
+| `W l` | List all worktrees |
+| `W p` | Prune stale worktree entries |
+
+In the **Branches** panel, `N` creates a new worktree branching off the selected branch.
+In the **Worktrees** panel, `D` force-removes the selected worktree.
+
+All creation commands automatically run `~/.config/git/worktree-init` to copy untracked files (`.envrc`, `.env*`, `node_modules`, `.python-version`, `.venv`, `.direnv`) into the new worktree.
+
+**Per-project overrides:** create a `.worktree-copy` file at the repo root with one path per line to replace the default copy list for that project.
 
 ---
 
