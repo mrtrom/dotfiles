@@ -40,11 +40,6 @@ shell_aws() {
     eval "$(command shell_aws --shell zsh)"
     shell_aws "$@"
 }
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# eval "$(pyenv init - --no-rehash zsh)"
-# eval "$(pyenv virtualenv-init -)"
 
 saml_login() {
   saml2aws login --profile saml && \
