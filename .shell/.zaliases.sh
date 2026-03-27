@@ -112,6 +112,11 @@ alias cdi='zi'  # interactive selection with fzf
 alias find='fd'
 
 # ----------------------
+# Utilities
+# ----------------------
+alias aliases='alias | fzf'
+
+# ----------------------
 # Claude multi-account
 # ----------------------
 alias claude-work='CLAUDE_CONFIG_DIR=~/.claude-work claude'
