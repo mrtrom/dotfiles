@@ -99,8 +99,8 @@ customCommands:
   # ===========================================================================
   - key: "M"
     context: "status"
-    description: "Open new Warp terminal in project"
-    command: "open -a Warp ."
+    description: "Open new Ghostty terminal in project"
+    command: "open -a Ghostty ."
   - key: "O"
     context: "status"
     description: "Open project in Cursor"
