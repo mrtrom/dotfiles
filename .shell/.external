@@ -47,3 +47,4 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#f1fa8c'
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#6272a4'
 ZSH_HIGHLIGHT_STYLES[redirection]='fg=#f8f8f2,bold'
 ZSH_HIGHLIGHT_STYLES[assign]='fg=#f8f8f2'
+ZSH_HIGHLIGHT_STYLES[region]='bg=#44475a'  # Dracula selection highlight
