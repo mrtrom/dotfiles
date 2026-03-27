@@ -17,3 +17,5 @@ fi
 eval "$(starship init zsh)"
 
 eval "$(direnv hook zsh)"
+
+command -v navi &>/dev/null && eval "$(navi widget zsh)"

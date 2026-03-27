@@ -127,7 +127,8 @@ brew install \
   opencode \
   stripe \
   localstack-cli \
-  yazi
+  yazi \
+  navi
 
 # ── 9. Casks ─────────────────────────────────────────────────────────────────
 info "Installing casks..."

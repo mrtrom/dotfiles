@@ -1,0 +1,4 @@
+% scripts, personal
+
+# Run moveMouse
+cd ~/Documents/NovaDoos/movemouse/ && ./moveMouse
