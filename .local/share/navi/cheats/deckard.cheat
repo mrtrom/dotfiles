@@ -1,0 +1,4 @@
+% deckard, aws, codeartifact
+
+# PDM Install
+export CODEARTIFACT_USERNAME=aws && export CODEARTIFACT_HOSTPATH=deckard-854653828633.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-deckard/ && export CODEARTIFACT_PASSWORD=$(aws codeartifact get-authorization-token --domain deckard --domain-owner 854653828633 --region us-west-2 --query authorizationToken --output text) && pdm install
