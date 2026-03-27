@@ -1,0 +1,16 @@
+# Atuin — shell history manager
+# https://docs.atuin.sh/configuration/config/
+
+# UI style: "compact" keeps it minimal
+style = "compact"
+
+# Execute immediately on Enter (no extra confirm needed)
+enter_accept = true
+
+# Use sync v2 protocol (required for account sync)
+[sync]
+records = true
+
+# Automatically filter secrets from history
+[history]
+secrets_filter = true

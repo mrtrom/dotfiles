@@ -46,6 +46,7 @@ brew install \
   fd \
   ripgrep \
   carapace \
+  atuin \
   direnv \
   htop \
   hyperfine \

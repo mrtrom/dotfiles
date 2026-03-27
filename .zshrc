@@ -59,6 +59,9 @@ export PATH="/usr/local/bin:$PATH"
 # Remove duplicate PATH entries
 typeset -U PATH path
 
+# Atuin — shell history
+command -v atuin &>/dev/null && eval "$(atuin init zsh)"
+
 # Carapace — multi-shell completion engine
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;33mCompleting %d\e[m'
