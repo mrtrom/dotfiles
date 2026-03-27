@@ -38,3 +38,11 @@ zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
 
 # Remove trailing slash on directory completion
 zstyle ':completion:*' squeeze-slashes true
+
+# ZLE key bindings — Shift+Arrow (fixes raw escape sequences printing in Ghostty)
+bindkey "^[[1;2C" forward-word       # Shift+Right  — jump word forward
+bindkey "^[[1;2D" backward-word      # Shift+Left   — jump word backward
+bindkey "^[[1;2A" beginning-of-line  # Shift+Up     — go to line start
+bindkey "^[[1;2B" end-of-line        # Shift+Down   — go to line end
+bindkey "^[[1;10D" beginning-of-line # Cmd+Shift+Left  — go to line start
+bindkey "^[[1;10C" end-of-line       # Cmd+Shift+Right — go to line end
