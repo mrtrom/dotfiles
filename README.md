@@ -37,6 +37,7 @@ After that, follow the manual steps printed at the end of `bootstrap.sh`.
 | AWS SAML | `saml2aws configure` |
 | GPG signing | `gpg --import <your-key.gpg>` |
 | granted browser | `granted browser set -b chrome --path "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"` |
+| Atuin sync | `atuin register` (optional, for cross-machine history sync) |
 | Restart terminal | To apply all shell changes |
 
 ---
@@ -101,12 +102,18 @@ yadm diff HEAD~1
 | `.shell/.exports` | Environment variables (PNPM, Deno, Go, Java, etc.) |
 | `.shell/.zaliases.sh` | All aliases |
 | `.shell/.functions` | Shell functions (magic-enter, yazi, completion cache) |
-| `.shell/.external` | Tool initialization (Homebrew, FNM, zoxide, rbenv, Starship, direnv) |
+| `.shell/.external` | Tool initialization (Homebrew, FNM, rbenv, Starship, direnv, navi, autosuggestions) |
+| `.shell/.completions` | Zsh completion styling (zstyle settings, menu select, caching) |
 | `.gitconfig` | Git config with delta pager, SSH signing, aliases |
-| `.config/git/worktree-init` | Script to copy untracked files (`.envrc`, `.env*`, `node_modules`, `.venv`, etc.) into a new worktree |
-| `.config/lazygit/config.yml` | lazygit config: custom commands for worktrees, PRs, Claude Code commits, Warp/Cursor integration |
-| `.config/starship.toml` | Starship prompt config |
-| `.config/eza/theme.yml` | EZA file listing theme |
+| `.config/git/worktree-init` | Script to copy untracked files into a new worktree |
+| `.config/lazygit/config.yml` | lazygit config: worktrees, PRs, Claude Code commits |
+| `.config/starship.toml` | Starship prompt (Dracula theme, time, AWS, git, node, python) |
+| `.config/ghostty/config` | Ghostty terminal (Dracula, Hack Nerd Font, shell integration) |
+| `.config/atuin/config.toml` | Atuin shell history (compact, secrets filter, sync v2) |
+| `.config/bat/config` | bat theme (Dracula) |
+| `.config/eza/theme.yml` | eza file listing theme |
+| `.local/share/navi/cheats/personal.cheat` | Personal navi snippets |
+| `.local/share/navi/cheats/deckard.cheat` | Deckard work navi snippets |
 | `.ssh/config` | SSH host config |
 | `.aws/config` | AWS profiles (Deckardtech SSO + NewsCorp Okta) |
 | `bootstrap.sh` | Fresh Mac install script |
@@ -120,6 +127,41 @@ yadm diff HEAD~1
 Pressing **Enter on a blank prompt** auto-runs:
 - `git status --short` — when inside a git repo
 - `eza -la` — everywhere else
+
+### Ghost Text Suggestions
+**zsh-autosuggestions** shows history-based suggestions as you type:
+- `→` — accept full suggestion
+- `Ctrl-F` — accept one word at a time
+
+Commands are colored **green** (valid) or **red** (not found) via **zsh-syntax-highlighting**.
+
+### Completion Menu
+Tab completion is powered by **carapace** (1000+ tools with descriptions) with:
+- Interactive highlighted menu (`Tab` to navigate, `Enter` to select)
+- Grouped by category with yellow headers
+- Case-insensitive fuzzy matching
+- Cached completions for slow tools (aws, gh, kubectl)
+
+### Snippet Runner (navi)
+Press `Ctrl-G` to open a searchable menu of saved command snippets.
+
+Cheat files:
+- `~/.local/share/navi/cheats/personal.cheat` — personal scripts
+- `~/.local/share/navi/cheats/deckard.cheat` — Deckard work commands
+
+To add a new snippet, append to the relevant `.cheat` file:
+```
+% category, tags
+
+# Description shown in search
+your command here
+```
+
+### Shell History (atuin)
+`Ctrl-R` opens atuin's searchable history UI:
+- Stored in a local SQLite DB (`~/.local/share/atuin/history.db`)
+- Secrets filter auto-excludes AWS keys, tokens, etc.
+- Optional encrypted sync across machines: `atuin register` + `atuin sync`
 
 ### Key Aliases
 
@@ -185,16 +227,22 @@ All creation commands automatically run `~/.config/git/worktree-init` to copy un
 | Tool | Purpose |
 |------|---------|
 | [yadm](https://yadm.io) | Dotfiles manager (git wrapper for `$HOME`) |
-| [starship](https://starship.rs) | Shell prompt |
+| [starship](https://starship.rs) | Shell prompt (Dracula theme, time, AWS, git modules) |
+| [ghostty](https://ghostty.org) | Terminal emulator (Dracula, Hack Nerd Font, shell integration) |
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | Smart `cd` with frecency |
 | [eza](https://github.com/eza-community/eza) | Modern `ls` replacement |
-| [bat](https://github.com/sharkdp/bat) | Syntax-highlighted `cat` |
+| [bat](https://github.com/sharkdp/bat) | Syntax-highlighted `cat` (Dracula theme) |
 | [fd](https://github.com/sharkdp/fd) | Fast `find` replacement |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | Fast `grep` replacement |
 | [git-delta](https://github.com/dandavison/delta) | Syntax-highlighted git diffs |
 | [lazygit](https://github.com/jesseduffield/lazygit) | Terminal git UI |
 | [yazi](https://github.com/sxyazi/yazi) | Terminal file manager |
+| [atuin](https://atuin.sh) | Shell history (SQLite, secrets filter, optional sync) |
+| [carapace](https://carapace-sh.github.io/carapace-bin) | Multi-shell completions for 1000+ tools |
+| [navi](https://github.com/denisidoro/navi) | Interactive command snippet runner (`Ctrl-G`) |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | History-based ghost text suggestions |
+| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | Real-time command coloring |
 | [granted](https://docs.commonfate.io/granted) | AWS profile switcher + console opener |
 | [direnv](https://direnv.net) | Per-directory env vars |
 | [fnm](https://github.com/Schniz/fnm) | Fast Node version manager |
