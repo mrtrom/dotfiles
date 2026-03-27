@@ -16,3 +16,7 @@ macos-option-as-alt = true
 
 shell-integration = zsh
 shell-integration-features = cursor,sudo,title
+
+# Keybindings
+keybind = super+shift+arrow_left=adjust_selection:home
+keybind = super+shift+arrow_right=adjust_selection:end
