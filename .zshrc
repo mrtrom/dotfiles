@@ -59,5 +59,10 @@ export PATH="/usr/local/bin:$PATH"
 # Remove duplicate PATH entries
 typeset -U PATH path
 
+# Carapace — multi-shell completion engine
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+zstyle ':completion:*' format $'\e[2;33mCompleting %d\e[m'
+command -v carapace &>/dev/null && source <(carapace _carapace)
+
 # Zoxide — must be initialized last
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"

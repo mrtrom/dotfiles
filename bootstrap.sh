@@ -45,6 +45,7 @@ brew install \
   bat \
   fd \
   ripgrep \
+  carapace \
   direnv \
   htop \
   hyperfine \
