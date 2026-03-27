@@ -38,25 +38,3 @@ zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
 
 # Remove trailing slash on directory completion
 zstyle ':completion:*' squeeze-slashes true
-
-# ZLE selection widgets — Shift+Arrow selects text (sets REGION_ACTIVE for highlight)
-_zle_select() {
-  ((REGION_ACTIVE)) || { MARK=$CURSOR; REGION_ACTIVE=1 }
-  zle $1
-}
-_select-forward-word()      { _zle_select forward-word }
-_select-backward-word()     { _zle_select backward-word }
-_select-beginning-of-line() { _zle_select beginning-of-line }
-_select-end-of-line()       { _zle_select end-of-line }
-
-zle -N _select-forward-word
-zle -N _select-backward-word
-zle -N _select-beginning-of-line
-zle -N _select-end-of-line
-
-bindkey "^[[1;2C"  _select-forward-word       # Shift+Right
-bindkey "^[[1;2D"  _select-backward-word      # Shift+Left
-bindkey "^[[1;2A"  _select-beginning-of-line  # Shift+Up
-bindkey "^[[1;2B"  _select-end-of-line        # Shift+Down
-bindkey "^[[1;10D" _select-beginning-of-line  # Cmd+Shift+Left
-bindkey "^[[1;10C" _select-end-of-line        # Cmd+Shift+Right
