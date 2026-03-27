@@ -12,6 +12,8 @@ else
   compinit -C -i
 fi
 
+source "$HOME/.shell/.completions"
+
 # Commands starting from " " (whitespace) won't be saved in history:
 HIST_IGNORE_SPACE="true"
 
@@ -64,7 +66,6 @@ command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 
 # Carapace — multi-shell completion engine
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-zstyle ':completion:*' format $'\e[2;33mCompleting %d\e[m'
 command -v carapace &>/dev/null && source <(carapace _carapace)
 
 # Zoxide — must be initialized last

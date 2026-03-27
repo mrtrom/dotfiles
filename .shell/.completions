@@ -1,0 +1,20 @@
+# Completion styling
+# Must be sourced after compinit
+
+# Interactive menu with highlight on selection
+zstyle ':completion:*' menu select
+
+# Color files by type (uses LS_COLORS)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Yellow category headers
+zstyle ':completion:*:descriptions' format $'\e[2;33mCompleting %d\e[m'
+
+# Red warning when no matches
+zstyle ':completion:*:warnings' format $'\e[91mNo matches for: %d\e[m'
+
+# Case-insensitive fuzzy matching
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|=*' 'l:|=* r:|=*'
+
+# Group completions by category
+zstyle ':completion:*' group-name ''
