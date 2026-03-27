@@ -18,3 +18,23 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|=*' 'l:|=* r:|=*'
 
 # Group completions by category
 zstyle ':completion:*' group-name ''
+
+# Cache slow completions (aws, gh, kubectl…)
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Complete commands after sudo
+zstyle ':completion::complete:*' gain-privileges 1
+
+# Kill — colored PIDs, always show list
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' force-list always
+
+# cd — don't offer current or parent dir as target
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# Show scroll position when navigating long lists
+zstyle ':completion:*' select-prompt '%SScrolling: %p%s'
+
+# Remove trailing slash on directory completion
+zstyle ':completion:*' squeeze-slashes true
