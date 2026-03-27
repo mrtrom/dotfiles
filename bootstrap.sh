@@ -128,7 +128,9 @@ brew install \
   stripe \
   localstack-cli \
   yazi \
-  navi
+  navi \
+  zsh-autosuggestions \
+  zsh-syntax-highlighting
 
 # ── 9. Casks ─────────────────────────────────────────────────────────────────
 info "Installing casks..."

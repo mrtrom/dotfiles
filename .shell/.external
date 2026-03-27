@@ -19,3 +19,11 @@ eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
 command -v navi &>/dev/null && eval "$(navi widget zsh)"
+
+# zsh-autosuggestions — history-based ghost text (accept with →)
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting — must be sourced last
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
