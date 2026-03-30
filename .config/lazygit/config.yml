@@ -8,10 +8,10 @@ gui:
     show: true
   theme:
     activeBorderColor:
-      - '#bd93f9'
+      - '#50fa7b'
       - bold
     inactiveBorderColor:
-      - '#6272a4'
+      - '#44475a'
     searchingActiveBorderColor:
       - '#ffb86c'
       - bold
