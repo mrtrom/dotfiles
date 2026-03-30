@@ -184,6 +184,34 @@ When adding theming to any new tool, use these values.
 
 ---
 
+## skhd (`~/.config/skhd/skhdrc`)
+
+Lightweight hotkey daemon — focuses app if running, launches if not. Runs as a launchd service (`skhd --start-service`).
+
+| Shortcut | App |
+|----------|-----|
+| `Ctrl+T` | Ghostty |
+| `Ctrl+C` | Cursor |
+| `Ctrl+B` | Google Chrome |
+| `Ctrl+S` | Slack |
+| `Ctrl+E` | Spark Desktop (Beta) |
+| `Ctrl+L` | Claude |
+| `Ctrl+F` | Finder |
+
+**Chrome profiles**: currently one profile (Personal = `Default`). When a work profile is added, use:
+```sh
+open -na "Google Chrome" --args --profile-directory="Profile 1"
+```
+
+**Service commands**:
+```sh
+skhd --start-service   # enable + start (runs on login)
+skhd --stop-service    # stop
+skhd --restart-service # reload after config changes
+```
+
+---
+
 ## Config Locations
 
 | Tool | Path |
@@ -195,6 +223,7 @@ When adding theming to any new tool, use these values.
 | Ghostty | `~/.config/ghostty/config` |
 | Starship | `~/.config/starship.toml` |
 | Lazygit | `~/.config/lazygit/config.yml` |
+| skhd | `~/.config/skhd/skhdrc` |
 | Git global | `~/.gitconfig` |
 | Git extras | `~/.config/git/` |
 | bat | `~/.config/bat/` |

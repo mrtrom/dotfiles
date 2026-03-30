@@ -1,0 +1,15 @@
+# skhd — app focus/launch shortcuts
+# Focuses the app if running, launches it if not.
+
+ctrl - t : open -a Ghostty
+ctrl - c : open -a Cursor
+ctrl - b : open -a "Google Chrome"
+ctrl - s : open -a Slack
+ctrl - e : open -a "Spark Desktop (Beta)"
+ctrl - l : open -a Claude
+ctrl - f : open -a Finder
+
+# Chrome profiles
+# Currently one profile (Personal = Default).
+# When a work profile is added:
+#   ctrl + shift - b : open -na "Google Chrome" --args --profile-directory="Profile 1"
