@@ -68,7 +68,7 @@ pnpm remove -g <package>  # uninstall
 pnpm list -g            # list installed globals
 ```
 
-Currently installed globals: `serverless`
+Currently installed globals: `serverless`, `simvyn`
 
 ---
 
