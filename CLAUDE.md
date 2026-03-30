@@ -58,6 +58,18 @@ Commit messages follow conventional commits: `feat:`, `fix:`, `chore:`, `refacto
 | Ruby | `rbenv` (lazy-loaded for startup speed) |
 | Python | `uv` |
 
+### Node global packages
+
+Global npm packages are scoped per Node version. Use **pnpm** (installed via brew) for CLI tools that should be available across all versions:
+
+```sh
+pnpm add -g <package>   # install
+pnpm remove -g <package>  # uninstall
+pnpm list -g            # list installed globals
+```
+
+Currently installed globals: `serverless`
+
 ---
 
 ## Key Tools & Aliases

@@ -245,7 +245,7 @@ All creation commands automatically run `~/.config/git/worktree-init` to copy un
 | [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | Real-time command coloring |
 | [granted](https://docs.commonfate.io/granted) | AWS profile switcher + console opener |
 | [direnv](https://direnv.net) | Per-directory env vars |
-| [fnm](https://github.com/Schniz/fnm) | Fast Node version manager |
+| [fnm](https://github.com/Schniz/fnm) | Fast Node version manager (globals via `pnpm add -g`) |
 | [gh](https://cli.github.com) | GitHub CLI |
 
 ---
