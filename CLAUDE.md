@@ -191,7 +191,7 @@ Lightweight hotkey daemon — focuses app if running, launches if not. Runs as a
 | Shortcut | App |
 |----------|-----|
 | `Ctrl+T` | Ghostty |
-| `Ctrl+C` | Cursor |
+| `Ctrl+K` | Cursor |
 | `Ctrl+B` | Google Chrome |
 | `Ctrl+S` | Slack |
 | `Ctrl+E` | Spark Desktop (Beta) |

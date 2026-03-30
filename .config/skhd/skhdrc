@@ -2,7 +2,7 @@
 # Focuses the app if running, launches it if not.
 
 ctrl - t : open -a Ghostty
-ctrl - c : open -a Cursor
+ctrl - k : open -a Cursor
 ctrl - b : open -a "Google Chrome"
 ctrl - s : open -a Slack
 ctrl - e : open -a "Spark Desktop (Beta)"
