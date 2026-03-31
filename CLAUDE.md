@@ -47,7 +47,7 @@ Commit messages follow conventional commits: `feat:`, `fix:`, `chore:`, `refacto
 |--------|---------|
 | `zsh-autosuggestions` | History-based ghost text, accept with `→` |
 | `zsh-syntax-highlighting` | Dracula-themed live syntax coloring |
-| `navi` | Cheatsheet widget (`Ctrl+G`) |
+| `navi` | Cheatsheet widget (`Ctrl+G`) — cheats at `~/.local/share/navi/cheats/` |
 | `direnv` | Per-directory env vars |
 
 ### Runtime managers
@@ -103,6 +103,21 @@ Currently installed globals: `serverless`, `simvyn`
 | `gu` | `git up` |
 | `grh` | `git reset --hard` |
 | `gccb` | Copy current branch name to clipboard |
+
+### Navi cheats
+
+| File | Tags | Contents |
+|------|------|----------|
+| `deckard.cheat` | `deckard, git, worktree` | Clone repo as bare worktree |
+| `deckard.cheat` | `deckard, aws, codeartifact` | PDM install, AWS SSO login |
+| `personal.cheat` | `scripts, personal` | moveMouse script |
+
+**Bare worktree clone** (`Ctrl+G` → search "bare worktree"):
+- Prompts for repo URL, auto-derives directory name
+- Clones bare, fixes `remote.origin.fetch` refspec, writes `.git` pointer, adds `main` worktree
+- Result: `<repo>.git/.bare`, `<repo>.git/.git`, `<repo>.git/main/`
+
+---
 
 ### Claude
 

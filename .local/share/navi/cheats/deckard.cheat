@@ -1,3 +1,8 @@
+% deckard, git, worktree
+
+# Clone repo as bare worktree (main branch)
+url=<repo_url>; dir="$(basename "$url" .git).git"; git clone --bare "$url" "$dir/.bare" && echo "gitdir: ./.bare" > "$dir/.git" && git --git-dir="$dir/.bare" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git --git-dir="$dir/.bare" worktree add "$dir/main"
+
 % deckard, aws, codeartifact
 
 # PDM Install
