@@ -1,0 +1,143 @@
+{
+    // ── Window & Workbench ───────────────────────────────────────────────────
+    "window.dialogStyle": "custom",
+    "window.commandCenter": true,
+    "window.title": "${rootPath}${separator}${dirty}",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Monokai",
+    "workbench.startupEditor": "none",
+    "security.promptForLocalFileProtocolHandling": false,
+
+    // ── Editor ───────────────────────────────────────────────────────────────
+    "editor.fontFamily": "'FiraCode Nerd Font', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.linkedEditing": true,
+    "editor.cursorSmoothCaretAnimation": "off",
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.showStatusBar": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // ── Files ────────────────────────────────────────────────────────────────
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+
+    // ── Terminal ─────────────────────────────────────────────────────────────
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+
+    // ── Git & GitHub ─────────────────────────────────────────────────────────
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.hovers.annotations.details": false,
+    "gitlens.hovers.annotations.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "githubPullRequests.fileListLayout": "flat",
+    "githubPullRequests.pullBranch": "never",
+
+    // ── JavaScript & TypeScript ──────────────────────────────────────────────
+    "prettier.singleQuote": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.suggest.paths": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "eslint.format.enable": true,
+    "npm.keybindingsChangedWarningShown": true,
+    "svelte.enable-ts-plugin": true,
+
+    // ── Language-specific formatters ─────────────────────────────────────────
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[graphql]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
+    // ── Python ───────────────────────────────────────────────────────────────
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+
+    // ── Go ───────────────────────────────────────────────────────────────────
+    "go.useLanguageServer": true,
+    "go.formatTool": "goimports",
+    "go.autocompleteUnimportedPackages": true,
+    "go.toolsManagement.autoUpdate": true,
+
+    // ── Terraform ────────────────────────────────────────────────────────────
+    "terraform.languageServer.enable": true,
+    "makefile.configureOnOpen": false,
+
+    // ── TODO Tree ────────────────────────────────────────────────────────────
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.highlights.useColourScheme": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+
+    // ── Cursor AI ────────────────────────────────────────────────────────────
+    "cursor.cpp.disabledLanguages": [
+        "plaintext",
+        "scminput",
+        "markdown"
+    ],
+    "claudeCode.preferredLocation": "sidebar",
+    "claudeCode.selectedModel": "opus",
+
+    // ── Misc ─────────────────────────────────────────────────────────────────
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+    }
+}
