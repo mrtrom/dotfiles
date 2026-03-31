@@ -128,6 +128,18 @@ Currently installed globals: `serverless`, `simvyn`
 
 ---
 
+## Zed (`~/.config/zed/`)
+
+- **Settings**: `settings.json` — tracked in yadm
+- **Theme**: Catppuccin Mocha (dark), Dracula (light)
+- **Buffer font**: FiraCode Nerd Font, size 16, ligatures enabled
+- **Terminal font**: Hack Nerd Font, size 14 (matches Ghostty)
+- **AI**: Copilot for edit predictions, Claude Opus 4.6 via Copilot Chat for agent
+
+Used as git commit editor (`zed --wait` in `.gitconfig`).
+
+---
+
 ## Cursor (`~/Library/Application Support/Cursor/User/`)
 
 - **Settings**: `settings.json` — tracked in yadm
