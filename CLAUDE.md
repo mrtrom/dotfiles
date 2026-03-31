@@ -128,6 +128,19 @@ Currently installed globals: `serverless`, `simvyn`
 
 ---
 
+## Cursor (`~/Library/Application Support/Cursor/User/`)
+
+- **Settings**: `settings.json` — tracked in yadm
+- **Extensions**: `extensions.txt` — tracked in yadm
+
+**After installing or removing any Cursor extension, always run:**
+```sh
+cursor-save-extensions
+```
+This updates `extensions.txt` so the extension list stays in sync with dotfiles.
+
+---
+
 ## Terminal
 
 **Ghostty** (`~/.config/ghostty/config`)
@@ -245,5 +258,7 @@ skhd --restart-service # reload after config changes
 | eza | `~/.config/eza/` |
 | yazi | `~/.config/yazi/` |
 | atuin | `~/.config/atuin/` |
+| Cursor settings | `~/Library/Application Support/Cursor/User/settings.json` |
+| Cursor extensions | `~/Library/Application Support/Cursor/User/extensions.txt` |
 | Claude (personal) | `~/.claude/` |
 | Claude (work) | `~/.claude-work/` |

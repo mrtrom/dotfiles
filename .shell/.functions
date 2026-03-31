@@ -30,6 +30,23 @@ y() {
   rm -f -- "$tmp"
 }
 
+# ── Cursor extensions sync ────────────────────────────────────────────────────
+# Save current extensions to the tracked list
+cursor-save-extensions() {
+  cursor --list-extensions | sort > "$HOME/Library/Application Support/Cursor/User/extensions.txt"
+  echo "Saved $(wc -l < "$HOME/Library/Application Support/Cursor/User/extensions.txt" | tr -d ' ') extensions"
+}
+
+# Install all extensions from the tracked list
+cursor-install-extensions() {
+  local ext_file="$HOME/Library/Application Support/Cursor/User/extensions.txt"
+  [[ ! -f "$ext_file" ]] && echo "No extensions.txt found" && return 1
+  while IFS= read -r ext; do
+    [[ -z "$ext" ]] && continue
+    cursor --install-extension "$ext"
+  done < "$ext_file"
+}
+
 # ── Completion caching ────────────────────────────────────────────────────────
 # Cache output of slow completion-generating commands for 24h.
 # Usage: _cached_completion pip completion --zsh
