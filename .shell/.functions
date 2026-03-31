@@ -4,20 +4,6 @@ _fzf_compgen_path() {
   ag -g "" "$1"
 }
 
-# ── Magic Enter ───────────────────────────────────────────────────────────────
-# Pressing Enter on a blank prompt runs `git status` (in a git repo) or `eza`
-magic-enter() {
-  if [[ -z "$BUFFER" ]]; then
-    if git rev-parse --is-inside-work-tree &>/dev/null 2>&1; then
-      BUFFER="git status --short"
-    else
-      BUFFER="eza --icons --group-directories-first -la"
-    fi
-  fi
-  zle .accept-line
-}
-zle -N accept-line magic-enter
-
 # ── Yazi (file manager with cwd integration) ──────────────────────────────────
 # Using `y` instead of `yazi` changes your shell directory when you quit yazi
 y() {
