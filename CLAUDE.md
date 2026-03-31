@@ -241,21 +241,12 @@ When adding theming to any new tool, use these values.
 
 macOS status bar utility for managing processes on ports. Installed via curl installer to `~/.local/bin/`.
 
-Runs as a persistent LaunchAgent: `~/Library/LaunchAgents/com.treadie.port-kill.plist`
-
 | Command | Description |
 |---------|-------------|
 | `port-kill 3000` | Kill process on port 3000 |
 | `port-kill --list` | List active ports |
 | `port-kill --ports 3000,8080` | Monitor specific ports |
 | `port-kill-console --console` | Terminal UI mode |
-
-**Service management:**
-```sh
-launchctl stop com.treadie.port-kill
-launchctl start com.treadie.port-kill
-launchctl unload ~/Library/LaunchAgents/com.treadie.port-kill.plist  # disable permanently
-```
 
 ---
 

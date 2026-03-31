@@ -118,7 +118,6 @@ yadm diff HEAD~1
 | `.aws/config` | AWS profiles (Deckardtech SSO + NewsCorp Okta) |
 | `bootstrap.sh` | Fresh Mac install script |
 | `macos.sh` | macOS system defaults |
-| `Library/LaunchAgents/com.treadie.port-kill.plist` | port-kill status bar auto-start |
 
 ---
 
@@ -248,7 +247,7 @@ All creation commands automatically run `~/.config/git/worktree-init` to copy un
 | [direnv](https://direnv.net) | Per-directory env vars |
 | [fnm](https://github.com/Schniz/fnm) | Fast Node version manager (globals via `pnpm add -g`) |
 | [gh](https://cli.github.com) | GitHub CLI |
-| [port-kill](https://github.com/treadiehq/port-kill) | macOS status bar port manager (auto-starts via LaunchAgent) |
+| [port-kill](https://github.com/treadiehq/port-kill) | macOS status bar port manager |
 
 ---
 
