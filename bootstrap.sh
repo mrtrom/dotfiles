@@ -132,7 +132,21 @@ brew install \
   zsh-autosuggestions \
   zsh-syntax-highlighting
 
-# ── 9. Casks ─────────────────────────────────────────────────────────────────
+# ── 9. Port Kill ─────────────────────────────────────────────────────────────
+info "Installing port-kill..."
+if ! command -v port-kill &>/dev/null; then
+  curl -fsSL portkill.com/install | bash
+else
+  success "port-kill already installed"
+fi
+
+PLIST="$HOME/Library/LaunchAgents/com.treadie.port-kill.plist"
+if [ -f "$PLIST" ] && ! launchctl list | grep -q "com.treadie.port-kill"; then
+  launchctl load "$PLIST"
+  success "port-kill LaunchAgent loaded"
+fi
+
+# ── 10. Casks ─────────────────────────────────────────────────────────────────
 info "Installing casks..."
 brew install --cask \
   font-hack-nerd-font \
@@ -144,13 +158,13 @@ brew install --cask \
   ngrok \
   claude-code
 
-# ── 10. macOS defaults ────────────────────────────────────────────────────────
+# ── 11. macOS defaults ────────────────────────────────────────────────────────
 if [ -f "$HOME/macos.sh" ]; then
   info "Applying macOS defaults..."
   bash "$HOME/macos.sh"
 fi
 
-# ── 11. Manual steps ─────────────────────────────────────────────────────────
+# ── 12. Manual steps ─────────────────────────────────────────────────────────
 echo ""
 warn "Manual steps required:"
 cat <<'EOF'

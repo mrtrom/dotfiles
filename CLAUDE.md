@@ -144,12 +144,25 @@ Used as git commit editor (`zed --wait` in `.gitconfig`).
 
 - **Settings**: `settings.json` — tracked in yadm
 - **Extensions**: `extensions.txt` — tracked in yadm
+- **Theme**: One Monokai, Catppuccin Latte icons
+- **Buffer font**: FiraCode Nerd Font, size 16, ligatures enabled
+- **Terminal font**: Hack Nerd Font, size 14 (matches Ghostty)
+- **Formatters**: Prettier (global default), Biome available per-workspace, Ruff for Python, goimports for Go
+- **AI**: Claude Code in sidebar (Opus), tab completions disabled for plaintext/markdown
+- **Key extensions**: Error Lens, GitLens, TODO Tree, Tailwind CSS, Prisma, GraphQL, React Native, Docker, GitHub Actions, GitHub PRs
 
 **After installing or removing any Cursor extension, always run:**
 ```sh
 cursor-save-extensions
 ```
 This updates `extensions.txt` so the extension list stays in sync with dotfiles.
+
+**For Biome projects**, add a workspace `.vscode/settings.json`:
+```json
+{
+  "editor.defaultFormatter": "biomejs.biome"
+}
+```
 
 ---
 
@@ -221,6 +234,28 @@ Core palette:
 - Selection: `#44475a`
 
 When adding theming to any new tool, use these values.
+
+---
+
+## Port Kill
+
+macOS status bar utility for managing processes on ports. Installed via curl installer to `~/.local/bin/`.
+
+Runs as a persistent LaunchAgent: `~/Library/LaunchAgents/com.treadie.port-kill.plist`
+
+| Command | Description |
+|---------|-------------|
+| `port-kill 3000` | Kill process on port 3000 |
+| `port-kill --list` | List active ports |
+| `port-kill --ports 3000,8080` | Monitor specific ports |
+| `port-kill-console --console` | Terminal UI mode |
+
+**Service management:**
+```sh
+launchctl stop com.treadie.port-kill
+launchctl start com.treadie.port-kill
+launchctl unload ~/Library/LaunchAgents/com.treadie.port-kill.plist  # disable permanently
+```
 
 ---
 
